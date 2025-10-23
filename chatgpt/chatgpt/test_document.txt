@@ -1,0 +1,36 @@
+# Sample Document for Testing
+
+This is a sample document to test the document upload and analysis functionality of the ChatGPT-like chatbot.
+
+## Features Implemented
+
+1. **Document Upload**: Users can upload various file types including PDF, DOCX, TXT, and Excel files.
+
+2. **Text Extraction**: The system automatically extracts text content from uploaded documents using appropriate libraries:
+   - PyPDF2 for PDF files
+   - python-docx for Word documents
+   - openpyxl for Excel files
+   - Built-in text reading for plain text files
+
+3. **Document Management**: Users can view, manage, and delete their uploaded documents through the sidebar.
+
+4. **AI Analysis**: The chatbot can analyze uploaded documents and answer questions based on their content.
+
+## How to Use
+
+1. Upload a document using the 📎 button in the chat interface
+2. Ask questions about the document like:
+   - "Summarize this document"
+   - "What are the key points?"
+   - "Extract important information"
+   - "Analyze the content"
+
+## Technical Details
+
+- Built with Django framework
+- Uses Google Gemini AI for text analysis
+- Supports multiple file formats
+- Secure file storage and user authentication
+- Responsive web interface
+
+This document serves as a test case to verify that the document reading and analysis functionality is working correctly.

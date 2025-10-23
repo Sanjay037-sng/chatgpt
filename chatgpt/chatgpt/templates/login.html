@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .extra {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .extra a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .success {
+      color: green;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .messages {
+      margin-bottom: 15px;
+    }
+    .alert {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .alert-error {
+      background-color: #ffebee;
+      color: #c62828;
+      border: 1px solid #ffcdd2;
+    }
+    .alert-success {
+      background-color: #e8f5e8;
+      color: #2e7d32;
+      border: 1px solid #c8e6c9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    
+    <!-- Display messages -->
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    <form method="post" id="loginForm">
+      {% csrf_token %}
+      <input type="text" name="username" id="username" placeholder="Enter Username" required>
+      <input type="password" name="password" id="password" placeholder="Enter Password" required>
+      <input type="submit" value="Login">
+    </form>
+    <div class="extra">
+      <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>
